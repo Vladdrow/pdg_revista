@@ -1,0 +1,10 @@
+.table-container {
+    
+    flex: 1;
+    overflow-y: auto;
+    min-width: 500px;
+}
+
+.table-container .table {
+    border-radius: 5px !important;
+}

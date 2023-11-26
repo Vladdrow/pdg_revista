@@ -1,0 +1,408 @@
+#dsh-empr-inst {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.institucion {
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.5);
+    padding-bottom: 5px;
+    background-color: #f6f6f6;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+
+    position: relative;
+}
+
+.premium-icon-container {
+    height: 3em;
+}
+.premium-icon-container svg {
+    height: 100%;
+}
+.premium-icon-container.gold svg path{
+    stroke: #EABE3F;
+    fill: #EABE3F;
+}
+
+.institucion * {
+    padding: 0px 5px;
+}
+.institucion .name-img-inst {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    gap: 10px; 
+    border-bottom: 2px solid #000;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.institucion .name-img-inst:hover {
+    color: #007bff;
+}
+
+.institucion .name-img-inst #name-inst {
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: bold !important;
+}
+.institucion .cant-sucursales {
+    font-size: 15px;
+}
+.institucion .name-img-inst img {
+    width: 20%;
+    max-width: 100%;
+    height: auto;
+}
+.institucion p {
+    margin: 4px 0;
+}
+
+.institucion .info-inst {
+    display: flex;
+}
+
+.institucion .info-inst svg {
+    margin-right: 5px;
+    padding-right: 2px;
+    position: relative;
+    height: 1.5rem;
+    top: 5px;
+}
+
+.icon-favorite {
+    position: absolute;
+    top: 7px;
+    left: 5px;
+    height: 2em;
+    z-index: 2;
+    padding: 0px ;
+    cursor: pointer;
+    z-index: 50;
+}
+.icon-favorite .favorite {
+    height: 100%;
+}
+.favorite.checked path {
+    fill: #a5862b;
+}
+
+.info-inst.correo,
+.info-inst.phone {
+    width: fit-content;
+    margin-right: 50px;
+}
+
+.phone-inst-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+.success-copy {
+    border: 1px solid #fff;
+    padding: 2px;
+    background-color: rgb(4, 123, 37);
+    border-radius: 3px;
+    color: #fff;
+}
+
+.toggle-branches {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.8
+    ); 
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.sucursal-info {
+    overflow: hidden; 
+    max-height: 0; /* Inicialmente, no queremos mostrar las sucursales */
+    transition: max-height 0.3s ease-in-out; /* Esta es la animación fluida */
+}
+
+.sucursal-info.active {
+    max-height: 1000px; /* Este valor debería ser más grande que la altura máxima que tus sucursales podrían tener */
+}
+
+.dropdown-entity {
+    transform: rotate(0deg);
+    /* transition: transform 0.3s ease-in-out; */
+}
+.dropdown-entity.rotated {
+    transform: rotate(-180deg);
+}
+
+/* Animación fadeIn para el overlay y el modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes modalOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+}
+
+.Modal-entity {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 600px; /* O el tamaño que desees */
+    /* background: #fff; */
+    padding: 20px;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    animation: modalIn 0.3s ease-out forwards;
+    height: fit-content;
+    max-height: 700px;
+    
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más suave y distribuida */
+    overflow: scroll;
+    background-color: #f6f6f6;
+}
+.Modal-entity.modalOut {
+    animation: modalOut 0.3s forwards;
+}
+
+.Modal-entity .icon-favorite {
+    position: initial;
+    height: 2.5em;
+    padding: 0px;
+    cursor: pointer;
+    box-shadow: none;
+    border: none;
+    width: fit-content;
+}
+/* Estilos para el overlay oscuro detrás del modal */
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 999;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px; /* Añade un poco de padding */
+    background-color: #f44336; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    border: 1px solid #d32f2f; /* Borde con un tono más oscuro */
+    border-radius: 4px; /* Bordes redondeados */
+
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.close-button:hover {
+    background-color: #c0362c;
+}
+/* Estilos para que el SVG y el p estén lado a lado */
+.item-with-icon {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+}
+.item-with-icon p,
+.close-button {
+    transition: all 0.2s ease;
+}
+.item-with-icon p:hover,
+.close-button:hover {
+    filter: brightness(0.9); /* Ligeramente más oscuro al pasar el ratón por encima */
+}
+
+.item-with-icon svg {
+    margin-right: 8px; /* Espacio entre el SVG y el texto */
+}
+.sucursal-section {
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+.sucursal-section:last-child {
+    border-bottom: none;
+}
+.modal-content-entity {
+    position: relative;
+    /* display: grid; */
+    grid-template-columns: 1fr;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    
+
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto; /* Auto para que solo aparezca cuando sea necesario */
+    scrollbar-width: thin; /* Hacer la barra de desplazamiento más delgada */
+    scrollbar-color: #007bff #eaeaea;
+}
+.modal-content-entity::-webkit-scrollbar {
+    width: 8px; /* Ancho del scrollbar */
+}
+
+.modal-content-entity::-webkit-scrollbar-track {
+    background: #eaeaea; /* Fondo del track del scrollbar */
+}
+
+.modal-content-entity::-webkit-scrollbar-thumb {
+    background-color: #007bff; /* Color del thumb del scrollbar */
+    border-radius: 4px; /* Bordes redondeados para el thumb */
+}
+
+.modal-content-entity .hd-modal-entity {
+    padding: 0;
+    box-shadow: none;
+    border: none;
+}
+
+/* .Modal .icon-favorite .favorite {
+    height: 100%;
+}
+.Modal .favorite.checked path {
+    z-index: 5;
+    fill: #a5862b;
+} */
+
+.modal-content-entity .hd-modal-entity img {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin: 20px 0px;
+    width: 100%;
+}
+
+.modal-content-entity > div {
+    border: 1px solid #eaeaea;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.modal-content-entity p {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: none;
+    border-left: 4px solid #007bff;
+    cursor: pointer; /* Esto indica que es clickable */
+    transition: background-color 0.2s ease; /* Transición suave al hacer hover */
+}
+.modal-content-entity .with-underline {
+    text-decoration: underline;
+}
+
+.modal-content-entity p:hover {
+    background-color: #eef4ff;
+}
+
+
+@media (max-width: 1100px) {
+    #dsh-empr-inst {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas por fila */
+        padding: 20px;
+    }
+}
+@media (max-width: 768px) {
+    #dsh-empr-inst {
+        grid-template-columns: repeat(2, 1fr); /* 3 columnas por fila */
+    }
+}
+
+/* Estilos para teléfonos celulares */
+@media (max-width: 515px) {
+    #dsh-empr-inst {
+        grid-template-columns: repeat(1, 1fr); /* 2 columnas por fila */
+        padding: 0px 10px;
+    }
+}
+@media (max-width: 768px) {
+    .Modal-entity {
+        width: 90%; /* Más ancho en pantallas pequeñas para mejor uso del espacio */
+        height: auto; /* Altura auto para manejar contenido variable */
+        max-height: 90%; /* No más del 90% de la pantalla */
+        overflow-y: scroll;
+    }
+    .Overlay {
+        height: auto;
+        max-height: 100%;
+    }
+}
+/* @media (max-width: 800px) {
+    #dsh-empr-inst {
+        margin: 8px 2px;
+        flex-wrap: nowrap;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 1165px) {
+    .institucion {
+        flex: 0 1 calc(50% - 30px); 
+        transition: flex 0.3s ease-in-out;
+    }
+}
+
+@media (max-width: 480px) {
+    .institucion {
+        
+        flex: 0 1 calc(100% - 30px);
+        transition: flex 0.3s ease-in-out;
+        
+    }
+} */

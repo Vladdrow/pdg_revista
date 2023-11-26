@@ -1,0 +1,314 @@
+/* .publisher-registry {
+    min-width: 500px;
+    width: 650px    ;
+    max-width: 700px;
+}
+.publisher-registry input {
+    margin-bottom: 20px;
+}
+.publisher-registry label {
+    margin-top: 10px;
+    font-weight: bold !important;
+}
+ */
+#show-users {
+    padding: 10px 20px 20px 50px;
+    width: 100%;
+    height: fit-content;
+}
+
+#show-users h2 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.right-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.right-btn:hover {
+    background-color: #0056b3;
+}
+
+.users-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* width: 80%; */
+    min-width: 400px;
+    /* max-width: 1300px; */
+    margin: 0 auto;
+    /* height: 100vh; */
+    position: relative;
+    /* max-height: calc(100vh - 50px); */
+    overflow-y: auto;
+}
+
+/* Estilos para la sección de filtros */
+.filters-users-list {
+    border: 1px solid rgb(121, 119, 119); /* Ajusta el color y el grosor del borde según sea necesario */
+    position: relative;
+    padding: 10px 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: center; /* Centrar horizontalmente */
+    margin-bottom: 20px;
+    width: 100%; /* Ocupar todo el ancho disponible */
+}
+.filters-users-list::before {
+    content: "Filtros";
+    position: absolute;
+    left: 10px;
+    top: -20px;
+    background: #fff; /* Asegúrate de que el fondo coincida con el color de fondo de tu página */
+    padding: 0 5px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.main-filters,
+.additional-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: center; /* Centrar los filtros principales horizontalmente */
+}
+/* COMPONENTS FILTERS */
+/* .filter-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.filter-label {
+    font-weight: bold;
+}
+
+.filter-select, .filter-input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.filter-select:focus, .filter-input:focus {
+    border-color: #007bff;
+    outline: none;
+} */
+.filter-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: max-content;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.filter-label {
+    background: #f5f5f5;
+    transition: margin-right 0.3s;
+    margin-right: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.filters-users-list input[type="date"] {
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s, opacity 0.3s;
+    border: none;
+    margin-left: -5px;
+    outline: none;
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.filters-users-list select {
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s, opacity 0.3s;
+    border: none;
+    margin-left: 5px;
+    outline: none;
+    background-color: transparent;
+    padding: 5px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.filter-wrapper:hover input[type="date"] {
+    width: 150px;
+    opacity: 1;
+}
+
+.filter-wrapper:hover select {
+    width: 150px; /* Ajusta según prefieras */
+    opacity: 1;
+}
+
+.altered::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 2;
+}
+
+select:focus {
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+/*  */
+.show-more-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.show-more-btn:hover {
+    background-color: #0056b3;
+}
+
+.additional-filters {
+    width: 100%;
+}
+.last-main-filter-with-button {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center; /* Centrar el filtro y el botón horizontalmente */
+}
+
+/* MODAL */
+/* Estilos para el overlay del modal */
+.modal-overlay {
+    position: fixed; /* Posición fija para cubrir toda la pantalla */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparente para oscurecer la pantalla */
+    z-index: 999; /* Justo debajo del modal */
+}
+.modal-overlay--after-open {
+    opacity: 1;
+}
+
+/* Estilos para el contenido del modal */
+.modal-content-register {
+    position: fixed; /* Posición fija para que siempre esté en el centro de la pantalla */
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar el modal */
+    min-width: 600px;
+    max-height: 500px;
+    background: white; /* Fondo blanco */
+
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+}
+
+/* Estilos para el botón de cerrar */
+.modal-content-register button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.modal-content-register button:hover {
+    background-color: #0056b3;
+}
+
+/* Espacio entre los campos del formulario */
+/* .modal-content-register .form-register div {
+    margin-bottom: 0px;
+} */
+
+/* Estilos específicos para el botón de cerrar modal */
+.close-modal {
+    position: absolute; /* Esto posicionará el botón relativo al modal */
+    top: 10px; /* Espacio desde la parte superior */
+    right: 10px; /* Espacio desde la parte derecha */
+    background-color: #0b62bf; /* Sin fondo */
+    color: #fff; /* Color gris oscuro para la "X" */
+    font-size: 24px; /* Tamaño de letra más grande para la "X" */
+    padding: 5px 10px; /* Espaciado interno del botón */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Mano al pasar el mouse por encima */
+    transition: color 0.2s; /* Transición suave del color */
+    border-radius: 3px;
+}
+
+.close-modal:hover {
+    color: #ff0000;
+    background-color: #007bff;
+}
+
+/* BOTONES */
+
+
+/* BOTONES DE ACCION */
+.btn-edit {
+    background-color: #4caf50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-edit:hover {
+    background-color: #45a049;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-delete:hover {
+    background-color: #da190b;
+}
+
+    
+@media (max-width: 768px) {
+    #show-users {
+        padding: 10px;
+        width: 100%;
+        height: fit-content;
+    }  
+}

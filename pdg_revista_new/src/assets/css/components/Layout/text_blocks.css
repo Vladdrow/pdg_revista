@@ -1,0 +1,212 @@
+#text-blocks-section {
+    background-color: #f5f5f5; /* Blanco, pero puedes cambiarlo a otro color si es necesario */
+    padding: 40px 0px;
+    text-align: center;
+}
+
+#text-blocks-section h2 {
+    font-size: 3vw;
+    font-weight: bolder;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#text-blocks-section h3 {
+    font-size: 2vw;
+    margin-bottom: 20px;
+}
+
+#sectors-covered .text-block{
+    width: 260px;
+    min-height: 310px;
+    height: fit-content;
+    display: inline-block;
+    /* flex-direction: column;
+    justify-content: space-evenly; */
+    text-align: center;
+    /* align-items: center; */
+    margin: 10px;
+    background-color: #cecdcd;
+    border-radius: 5px;
+    padding: 10px 2px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+}
+#text-blocks-section .text-block {
+    width: 260px;
+    min-height: 300px;
+    height: fit-content;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* text-align: center; */
+    align-items: center;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px 2px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+}
+#text-blocks-section .text-block {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.txt-block-img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    /* background-color: #f5f5f5; */
+}
+
+.txt-block-img svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.txt-block-desc {
+    height: fit-content;
+/*     display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+}
+
+.text-block p {
+    margin: 0; /* Elimina el margen predeterminado */
+    font-size: 30px;
+}
+
+.two-column-text {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px; /* Margen superior para separarlo de los contenedores .text-block */
+    max-width: 80%; /* Establece el ancho máximo del contenedor. Ajusta según lo necesites */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.column-txt {
+    flex: 1; /* Esto permite que ambas columnas ocupen la misma cantidad de espacio */
+    padding: 0 10px; /* Espacio a los lados de cada columna */
+    text-align: justify;
+    margin: 20px;
+}
+
+/* LOGISTICS PAGE */
+#text-blocks-section.log-ent img {
+    height: 100%;
+    width: 100%;
+}
+
+#text-blocks-section.log-ent .text-block {
+    /* width: 370px;*/
+    min-height: 400px; 
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border-radius: 20px;
+}
+#text-blocks-section.log-ent .text-block .txt-h-before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: 0;
+    padding: 10px;
+    color: #fff;
+}
+#text-blocks-section.log-ent .text-block:hover .txt-h-before {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#text-blocks-section.log-ent .txt-block-sectors h3 {
+    font-weight: bold;
+}
+#text-blocks-section.log-ent .text-block p {
+    font-size: 1.2em;
+}
+
+#text-blocks-section.log-ent .text-block:hover .txt-block-sectors,
+#text-blocks-section.log-ent .text-block:active .txt-block-sectors {
+    opacity: 1;
+    height: 100%;
+}
+
+#text-blocks-section.log-ent .txt-block-sectors {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+#text-blocks-section.log-ent .txt-block-sectors a {
+    font-size: 1.3em;
+    padding: 10px 15px; 
+    display: inline-block; 
+    /* text-decoration: none; */
+    color: #fff;
+    transition: background-color 0.3s ease; /* Transición para hover en el enlace */
+}
+
+#text-blocks-section.log-ent .txt-block-sectors a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+@media only screen and (max-width: 1024px) {
+    #text-blocks-section h2 {
+        font-size: 4vw;
+    }
+    #text-blocks-section h3 {
+        font-size: 3vw;
+    }
+    #sectors-covered .text-block,
+    #text-blocks-section .text-block {
+        width: 250px;
+        min-height: 300px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #text-blocks-section h2 {
+        font-size: 36px;
+    }
+    #text-blocks-section h3 {
+        font-size: 4vw;
+    }
+    #sectors-covered .text-block,
+    #text-blocks-section .text-block {
+        margin: 10px 10px;
+        min-height: 280px;
+    }
+    #text-blocks-section .text-block {
+        margin: 10px 0px;
+    }
+    .two-column-text {
+        flex-direction: column;
+    }
+
+    .column-txt {
+        margin-bottom: 20px; /* Espacio entre columnas en modo vertical */
+        margin: 0px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #text-blocks-section h3 {
+        font-size: 6vw;
+    }
+    #sectors-covered .text-block,
+    #text-blocks-section .text-block {
+        margin: 10px 10px;
+        width: 200px;
+        min-height: 250px;
+    }
+}

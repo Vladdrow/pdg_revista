@@ -1,0 +1,72 @@
+.app-container {
+    /* display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding: 20px; */
+    margin: 0 auto;
+}
+
+
+.subscription-form-container {
+    background: #fff;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 600px;
+    min-width: 500px;
+}
+
+.subscription-payment-info h2 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.subscription-payment-info p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.subscription-form-group {
+    margin-bottom: 15px;
+}
+
+.subscription-form-group label {
+    display: block;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.subscription-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.subscription-submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1em;
+}
+
+.subscription-submit-btn:hover {
+    background-color: #45a049;
+}
+
+.subscription-investment-info {
+    font-style: italic;
+    margin-top: 20px;
+    color: #666;
+}
+
+.subscription-alternate-payment p {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 10px;
+}

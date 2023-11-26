@@ -1,0 +1,201 @@
+.main-section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    /* justify-content: center; */
+}
+.main-section-sub {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+}
+
+.sub-main-sect {
+    padding: 150px 0px;
+    width: 1300px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.contenido {
+    text-align: left;
+    flex: 1;
+    padding: 30px 90px;
+    color: #fff;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 50%;
+}
+
+.contenido .titulo {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 3px 5px rgba(255, 255, 255, 0.5);
+}
+
+.img-guide {
+    padding: 0px 20px;
+    /* width: 50%; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.img-guide img {
+    height: 100%;
+    width: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+.mobile-button {
+    display: none;
+}
+.img-guide img:hover {
+    transform: scale(1.05);
+}
+
+.button-wrapper {
+    margin-top: auto;
+    width: fit-content;
+}
+
+.main-button {
+    padding: 15px 30px;
+    /* background-color: #3498db; */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto;
+    text-decoration: none;
+}
+
+.main-button:hover {
+    background-color: #2980b9;
+}
+
+@media only screen and (max-width: 1200px) {
+    #main-section .contenido {
+        padding: 20px 80px;
+    }
+}
+/* Media Queries para Responsividad */
+
+/* Para tablets grandes */
+@media only screen and (max-width: 1024px) {
+    .main-section-sub .contenido {
+        margin: auto;
+        padding: 10px 60px !important;
+    }
+    .titulo {
+        font-size: 40px !important;
+    }
+
+    .descripcion {
+        /* display: none; */
+    }
+    .main-button {
+        /* font-size: 16px; */
+    }
+    .desktop-button {
+        display: block !important;
+    }
+    .mobile-button {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .sub-main-sect {
+        padding: auto;
+    }
+    .main-section-sub .contenido {
+        padding: 0px 30px !important;
+    }
+    .desktop-button {
+        display: none !important;
+    }
+    .img-guide {
+        flex-direction: column;
+        padding: 0;
+    }
+    .img-guide img {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .desktop-button {
+        display: block !important;
+    }
+    /* .mobile-button {
+        display: block !important;
+    } */
+}
+
+/* Para tablets pequeñas */
+@media only screen and (max-width: 768px) {
+    /* .main-section-sub {
+        height: fit-content;
+    } */
+    .titulo {
+        font-size: 36px !important;
+    }
+    .descripcion {
+        font-size: 28px !important;
+    }
+    .sub-main-sect {
+        height: 100%;
+        padding: 50px 0px 70px;
+        flex-direction: column;
+    }
+    .sub-main-sect .contenido {
+        text-align: center;
+        width: 100%;
+        padding: 0px !important;
+        margin-bottom: 50px;
+    }
+    .sub-main-sect .img-guide {
+        justify-content: center;
+        height: 600px;
+    }
+    .contenido .button-wrapper {
+        width: 100%;
+    }
+    .desktop-button {
+        display: none !important;
+    }
+    .mobile-button {
+        display: block !important;
+    }
+}
+
+/* Para dispositivos móviles */
+@media only screen and (max-width: 550px) {
+    .descripcion {
+        display: none;
+    }
+    .img-guide {
+        height: 400px !important;
+    }
+    .img-guide img{
+        margin-bottom: 30px;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .titulo {
+        font-size: 28px;
+    }
+}

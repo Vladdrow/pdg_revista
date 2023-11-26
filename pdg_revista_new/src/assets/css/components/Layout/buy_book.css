@@ -1,0 +1,142 @@
+.book-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2c3e50; /* Cambia al color de fondo deseado */
+    color: #fff;
+    padding: 40px;
+    overflow: hidden;
+}
+.book-image {
+    animation: float 3s ease-in-out infinite, scale 3s ease-in-out infinite;
+}
+.book-image img {
+    min-width: 300px;
+    max-width: 100%;
+    height: 400px; /* Altura fija para el libro */
+    display: block; /* Asegura que la imagen no tenga espacio extra abajo */
+    transition: transform 0.3s ease;
+}
+/* .book-image img:hover {
+    transform: rotateZ(-5deg) scale(1.05);
+    transition: transform 0.3s ease;
+} */
+
+.book-description {
+    max-width: 500px;
+    margin-left: 80px;
+}
+
+.book-description h2 {
+    font-weight: bold;
+    font-size: 2em; /* Cambia esto al tamaño de fuente deseado */
+}
+
+.book-description p {
+    font-size: 1em; /* Cambia esto al tamaño de fuente deseado */
+    margin-bottom: 20px;
+}
+
+.buy-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e74c3c; /* Cambia al color del botón deseado */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px; /* Opcional, para bordes redondeados */
+    transition: background-color 0.3s ease;
+
+    animation: pulse 2s infinite;
+}
+
+.buy-button:hover {
+    background-color: #c0392b; /* Color al pasar el ratón por encima */
+}
+/* Animación flotante para el libro */
+/* Keyframes para las animaciones */
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes scale {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px 10px rgba(204, 169, 44, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .book-container {
+        flex-direction: column; /* Cambia la disposición a una columna */
+        padding: 20px; /* Ajusta el padding para dispositivos más pequeños */
+    }
+
+    .book-image {
+        margin-top: 20px;
+        margin-bottom: 40px; /* Añade espacio entre el libro y la descripción */
+    }
+
+    .book-image img {
+        margin: 0 auto;
+
+        width: 50%; /* Reduce el tamaño de la imagen para pantallas más pequeñas */
+    }
+
+    .book-description {
+        margin-left: 0; /* Elimina el margen izquierdo */
+        text-align: center; /* Centra el texto para una mejor lectura */
+    }
+
+    .book-description p {
+        font-size: 1.5rem; /* Ajusta el tamaño de fuente para una mejor lectura */
+    }
+}
+@media (max-width: 550px) {
+    .book-image img {
+    }
+}
+
+/* Media query para celulares (ejemplo: anchos menores a 480px) */
+@media (max-width: 480px) {
+    .book-container {
+        padding: 10px; /* Aún menos padding para pantallas muy pequeñas */
+    }
+
+    .book-image img {
+        width: 80%; /* Aumenta el tamaño de la imagen para que sea más legible */
+    }
+
+    .book-description p {
+        font-size: 1.25rem; /* Ajusta el tamaño de fuente para la legibilidad en celulares */
+    }
+
+    .buy-button {
+        font-size: 1rem; /* Ajusta el tamaño del botón */
+        padding: 8px 16px; /* Ajusta el relleno del botón para que no sea demasiado grande */
+    }
+}

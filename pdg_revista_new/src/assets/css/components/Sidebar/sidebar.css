@@ -1,0 +1,449 @@
+/* .sidebar {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    background-color: #f0ffff;
+    padding: 3px;
+    height: 100vh;
+    width: 340px;
+    overflow-y: auto;
+    z-index: 10;
+    transition: width 0.3s;
+    border-right: 3px solid #b3b3b3;
+}
+.sidebar.collapsed {
+    width: 4.5rem;
+}
+.sidebar .section.selected {
+    background-color: #d5d4d4; 
+}
+.section-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+}
+
+.section p {
+    font-size: 1.1em;
+    margin-bottom: 0px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.section-header {
+    width: 100%;
+    height: 3.2rem;
+    display: flex; 
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.link-div-sect:hover {
+    cursor: pointer;
+    background-color: #e6e6e6;
+    color: rgb(36, 29, 139);
+}
+.left-group {
+    display: flex; 
+    align-items: center; 
+}
+.link-div-sect .sect-name.hidden {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+    position: fixed;
+    left: 50px;
+}
+
+.link-div-sect.only-icon:hover .left-group .sect-name.hidden {
+    position: fixed;
+    left: 60px;
+    z-index: 50;
+    opacity: 1;
+    width: fit-content;
+    background-color: #d8d8d8;
+    padding: 10px;
+    border-radius: 3px;
+    pointer-events: auto;
+}
+.section-header h2 {
+    margin: 0;
+}
+.section-header h2:hover {
+    cursor: pointer;
+}
+.section-header button {
+    border: none !important;
+    border-radius: 3px;
+}
+
+.section-header button .arrow.rotated {
+    transform: rotate(180deg);
+}
+.subsection {
+    list-style-type: none;
+    padding-left: 20px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+.subsection.visible {
+    padding: 10px;
+}
+.subsection a {
+    text-decoration: none;
+    color: #000;
+    padding: 2px 5px; 
+    display: block; 
+    border-radius: 4px;
+}
+
+.subsection a:hover {
+    background-color: #e6e6e6;
+    color: rgb(36, 29, 139);
+}
+.subsection li {
+    margin-bottom: 8px;
+}
+
+
+.admin-user {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #b3b3b3;
+    width: 100%;
+}
+
+.admin-user .img-admin-user {
+    width: 60px;
+    border-radius: 10px;
+    margin: 20px;
+    overflow: hidden;
+    margin-right: 15px;
+    transition: margin 0.3s ease-in-out;
+}
+
+.admin-user .img-admin-user img {
+    height: 100%;
+    width: 100%;
+}
+.admin-user .info-admin-user p {
+    margin: 0;
+}
+.admin-user .info-admin-user .name-user {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.img-admin-user.collapsed {
+    margin: 10px 0px 30px;
+}
+.info-admin-user.collapsed {
+    opacity: 0;
+    width: 0;
+}
+ */
+
+/* Estilos base para la barra lateral */
+.sidebar {
+    top: 0;
+    left: 0;
+    padding: 10px;
+    position: fixed;
+    width: 260px;
+    height: 100vh;
+    background-color: #f9f9fa;
+    transition: width 0.3s ease;
+
+    color: #333;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
+
+    transition: width 0.3s ease-in-out;
+    z-index: 10;
+}
+
+/* Estilos para la barra lateral colapsada */
+.sidebar.collapsed {
+    width: 65px; /* Anchura ajustada para iconos */
+    padding: 0px;
+
+    transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+.sidebar.collapsed .menu-item {
+    padding: 0;
+    position: relative;
+}
+/* Tooltip estilizado para el texto de los íconos */
+.sidebar.collapsed .menu-item::after {
+    content: attr(data-title); /* Utiliza el valor del atributo data-title para el contenido */
+    visibility: hidden;
+    opacity: 0;
+    width: max-content; /* Ancho según el contenido */
+    background-color: #555; /* Fondo del tooltip */
+    color: #fff; /* Color del texto */
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px; /* Espaciado interno del tooltip */
+    position: absolute;
+    z-index: 1000; /* Asegúrate de que está sobre otros elementos */
+    left: 100%; /* Posición del tooltip al lado derecho del ícono */
+    top: 50%; /* Centrado verticalmente respecto al ícono */
+    transform: translate(0, -50%) scale(1.2); /* Centrado y escalado */
+    transition: visibility 0.2s, opacity 0.2s ease-in-out;
+    pointer-events: none; /* El tooltip no debe interferir con el mouse */
+}
+/* Mostrar el tooltip al pasar el ratón por encima del ícono */
+.sidebar.collapsed .menu-item:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Ocultar el nombre de la sección cuando la barra lateral está expandida */
+.sidebar.open .menu-item::after {
+    display: none;
+}
+
+.sidebar.collapsed .menu-items a {
+    justify-content: center; /* Centra el ícono */
+}
+
+/* Ajuste para cuando el sidebar está colapsado y se pasa el ratón por encima */
+.sidebar.collapsed .menu-items a:hover {
+    background-color: transparent; /* Remueve el fondo para evitar que tape el tooltip */
+}
+
+.sidebar.collapsed .menu-item .icon-only {
+    padding: 15px;
+    justify-content: center; /* Centra los íconos */
+}
+
+.sidebar.collapsed .menu-items a svg {
+    transform: scale(1.3); /* Aumentar el tamaño de los SVG */
+    margin: 0 auto;
+}
+.sidebar.collapsed .profile svg {
+    transform: scale(1.3); /* Aumentar el tamaño del SVG del perfil */
+}
+.sidebar.collapsed .toggle-btn {
+    justify-content: center; /* Centrar el botón en la barra colapsada */
+}
+
+.sidebar.collapsed .menu-items a {
+    justify-content: center; /* Centra los íconos */
+    padding: 15px 0; /* Ajusta el padding para mantener el espacio */
+    transition: padding 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Estilos para los elementos del menú */
+.menu-items {
+    padding: 10px 0px;
+}
+
+.menu-items a {
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding: 15px 0px;
+    color: #000;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.menu-items a:hover,
+.menu-items a.active {
+    background-color: #c0c0c0;
+}
+
+/* Estilos para los iconos dentro de los elementos del menú */
+.menu-items a svg {
+    width: 1.4em;
+    height: 1.4em;
+    transition: transform 0.3s ease; /* Transición suave para la transformación */
+    margin-right: 10px;
+}
+
+.icon-only {
+    justify-content: center;
+}
+
+.menu-section {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff; /* Fondo claro para las secciones */
+    margin-bottom: 2px; /* Separación entre secciones */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra para dar sensación de elevación */
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px; /* Espaciado interno para los elementos del menú */
+    border-left: 3px solid #007bff; /* Barra lateral como indicador activo */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-item:hover {
+    background-color: #f2f3f5; /* Color de fondo al pasar el cursor */
+}
+
+.menu-item a {
+    width: 100%;
+}
+.expand-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.3s ease;
+    outline: none; /* Remover el contorno al hacer clic */
+}
+
+/* Gira el icono del botón cuando la sección esté expandida */
+.menu-section.expanded .expand-btn {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    padding-left: 15px; /* Alineación para subsecciones */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    max-height: 0;
+}
+
+/* Cuando la sección está expandida, max-height se actualiza a un valor grande para mostrar el contenido */
+.menu-section.expanded .submenu {
+    max-height: 500px; /* Ajusta esto según el contenido */
+}
+
+.subitem {
+    padding: 8px 20px;
+    background-color: #f7f7f7; /* Color para subsecciones */
+    transition: background-color 0.3s ease;
+    border-left: 3px solid transparent; /* Espacio para la barra lateral de subsecciones */
+}
+
+.subitem:hover {
+    background-color: #e9ecef; /* Color de fondo al pasar el cursor sobre subsecciones */
+    border-left-color: #007bff; /* Barra lateral como indicador de hover en subsecciones */
+}
+
+/* Estilos para el perfil en la parte inferior */
+.profile {
+    margin-top: auto; /* Empuja el perfil hacia el fondo */
+    border-top: 1px solid #495057; /* Separador */
+}
+
+.profile svg {
+    fill: currentColor; /* Usa el color de texto actual para el icono */
+    width: 2em; /* Tamaño más grande para el icono del perfil */
+    height: 2em;
+    margin-right: 10px;
+}
+.sidebar.collapsed .profile a svg {
+    margin: 0;
+}
+/* Estilo para el botón de colapsar */
+.toggle-btn {
+    background: none;
+    border: none;
+    color: #000;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    font-size: 1em; /* Tamaño de fuente para el texto del botón */
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #495057; /* Separador */
+    border-radius: 3px;
+}
+
+.toggle-btn:hover {
+    background-color: #c0c0c0; /* Color de fondo al pasar el cursor */
+}
+
+.toggle-btn svg {
+    transition: transform 0.3s ease; /* Transición suave para la rotación */
+    width: 1.4em;
+    height: 1.4em;
+}
+
+/* Rotar el icono del botón cuando la barra lateral está colapsada */
+.sidebar.collapsed .toggle-btn svg {
+    transform: rotate(180deg);
+}
+
+/* Estilo para el texto del botón, ocultarlo cuando la barra está colapsada */
+.toggle-btn span {
+    margin-left: 10px; /* Espacio entre el icono y el texto */
+}
+
+.menu-item.active {
+    background-color: #c0c0c0; /* o cualquier otro color que quieras para resaltar */
+}
+
+.admin-user {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.admin-user .img-admin-user {
+    width: 40px;
+    border-radius: 10px;
+    margin: 20px;
+    overflow: hidden;
+    margin-right: 15px;
+    transition: margin 0.3s ease-in-out;
+}
+
+.admin-user .img-admin-user img {
+    height: 100%;
+    width: 100%;
+}
+.admin-user .info-admin-user p {
+    margin: 0;
+}
+.admin-user .info-admin-user .name-user {
+    font-size: 0.8em;
+    font-weight: bold;
+}
+.img-admin-user.collapsed {
+    margin: 10px 0px;
+}
+.info-admin-user.collapsed {
+    opacity: 0;
+    width: 0;
+}
+
+/* Ajustes responsivos para el tamaño del texto y los márgenes cuando la barra está colapsada */
+@media (max-width: 800px) {
+    .sidebar {
+        position: fixed; /* Asegurar que el sidebar se mantenga fijo */
+        left: 0; /* Deslizar dentro de la pantalla */
+        opacity: 1; /* Hacer visible */
+        transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Transición suave para deslizar y opacidad */
+    }
+    
+    .sidebar.collapsed {
+        left: -260px; /* Posición inicial fuera de la pantalla */
+        opacity: 0; /* Inicialmente oculto */
+        width: 260px; /* Anchura del sidebar */
+        transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Transición suave para deslizar y opacidad */
+    }
+
+    /* .sidebar.collapsed .menu-item:hover::after {
+        visibility: hidden;
+        opacity: 0;
+    } */
+}
+
+

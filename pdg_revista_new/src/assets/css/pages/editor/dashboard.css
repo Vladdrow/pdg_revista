@@ -1,0 +1,74 @@
+.App.auth_editor_dashboard header {
+    margin: 0;
+    border-radius: 0;
+    background-color: #78b2e6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+.dashboard-container {
+    margin-top: 0px !important;
+}
+.btn-collapsed {
+    position: fixed;
+    top: 0px;
+    left: 338px;
+    transition: left 0.3s;
+    border: none !important;
+}
+.btn-collapsed.pressed {
+    left: 4.5rem;
+}
+.canvas {
+    position: relative;
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    height: 100%;
+    transition: margin-left 0.3s ease-in-out, width 0.3s;
+}
+.canvas.full {
+    margin-left: 65px;
+    width: calc(100% - 65px);
+    transition: margin-left 0.3s, width 0.3s;
+}
+
+.canvas section {
+    padding: 10px 20px 20px 50px;
+    width: 100%;
+    min-width: 500px;
+    height: fit-content;
+    background-color: #f9f9fa;
+}
+.canvas section h2 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+
+
+@media (max-width: 800px) {
+    
+    .canvas {
+        width: 100%;
+    }
+    .canvas.full {
+        width: 100%;
+    }
+    #show-entities {
+        padding: 10px !important;
+    }
+    .canvas section {
+        padding: 10px;
+    }
+    .canvas {
+        margin-left: 0px;
+    }
+    .canvas.full {
+        margin: 0;
+    }
+}
+
+
+

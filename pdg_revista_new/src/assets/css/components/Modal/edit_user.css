@@ -1,0 +1,113 @@
+#form-edit-user {
+    
+}
+
+#form-edit-user label {
+    font-weight: bold;
+}
+
+#form-edit-user .id-not-edit,
+#form-edit-user .date-not-edit {
+    cursor: not-allowed;
+}
+
+#form-edit-user div {
+    margin-bottom: 10px;
+}
+#form-edit-user .box-inp {
+    margin-bottom: 0px !important;
+}
+#form-edit-user .left-user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#form-edit-user .left-user img {
+    border-radius: 3px;
+}
+
+#form-edit-user .left-user,
+#form-edit-user .right-user {
+    width: 50% !important;
+    margin: 0px !important;
+}
+#form-edit-user .right-user {
+    
+}
+
+#form-edit-user  .btn-save-changes{
+    margin-top: 15px;
+    width: 100%;
+}
+#form-edit-user .input-group {
+    flex-wrap: nowrap;
+}
+
+/* MODAL */
+/* Estilos para el overlay del modal */
+.modal-overlay {
+    position: fixed; /* Posición fija para cubrir toda la pantalla */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparente para oscurecer la pantalla */
+    z-index: 999; /* Justo debajo del modal */
+}
+.modal-overlay--after-open {
+    opacity: 1;
+}
+
+/* Estilos para el contenido del modal */
+.modal-content-edit{
+    position: fixed; /* Posición fija para que siempre esté en el centro de la pantalla */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar el modal */
+    min-width: 600px;
+    height: fit-content;
+    background: white; 
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+}
+
+/* Estilos para el botón de cerrar */
+.modal-content-edit button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.modal-content-edit button:hover {
+    background-color: #0056b3;
+}
+
+/* Espacio entre los campos del formulario */
+.modal-content-edit .form-register div{
+    margin-bottom: 15px;
+}
+
+/* Estilos específicos para el botón de cerrar modal */
+.close-modal {
+    position: absolute; /* Esto posicionará el botón relativo al modal */
+    top: 10px;          /* Espacio desde la parte superior */
+    right: 10px;        /* Espacio desde la parte derecha */
+    background-color: #0b62bf; /* Sin fondo */
+    color: #fff;        /* Color gris oscuro para la "X" */
+    font-size: 24px;    /* Tamaño de letra más grande para la "X" */
+    padding: 5px 10px;  /* Espaciado interno del botón */
+    border: none;       /* Sin borde */
+    cursor: pointer;    /* Mano al pasar el mouse por encima */
+    transition: color 0.2s; /* Transición suave del color */
+    border-radius: 3px;
+}
+
+.close-modal:hover {
+    color: #ff0000; 
+    background-color: #007bff
+}

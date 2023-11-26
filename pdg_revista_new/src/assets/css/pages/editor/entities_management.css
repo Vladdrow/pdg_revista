@@ -1,0 +1,81 @@
+#show-entities {
+    padding: 10px 20px 20px 50px;
+    width: 100%;
+    height: fit-content;
+}
+.header-section /* entities */ {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9fa; /* Color de fondo del encabezado */
+    padding: 10px 20px; /* Espaciado interno del encabezado */
+}
+
+.header-section h2 {
+    margin: 0;
+    /* Estilos adicionales para el título si es necesario */
+}
+
+.btn-new-user {
+    position: relative; /* Para posicionar el menú desplegable respecto al botón */
+}
+
+.registration-menu {
+    position: absolute;
+    right: 0; /* Alinear el menú a la derecha del botón */
+    top: 5%; /* Posicionar debajo del botón */
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 4px; /* Bordes redondeados para el menú */
+    overflow: hidden; /* Para los bordes redondeados */
+    z-index: 1; /* Asegurarse de que el menú esté encima de otros elementos */
+}
+
+.registration-menu button {
+    background-color: transparent;
+    color: black;
+    padding: 10px 20px;
+    text-align: left;
+    border: none;
+    width: 100%;
+    display: block;
+}
+
+.registration-menu button:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos para tablets grandes (ejemplo: anchura entre 768px y 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+    .header-section-entities {
+        padding: 10px 15px; 
+    }
+
+    /* Ajustes adicionales si son necesarios */
+}
+
+/* Estilos para tablets pequeñas y celulares (ejemplo: anchura menor a 768px) */
+@media (max-width: 767px) {
+    .header-section-entities {
+        align-items: center; /* Alinear elementos al inicio */
+    }
+
+    .header-section-entities h2 {
+        margin-bottom: 10px; /* Añadir margen entre título y botón */
+    }
+
+    .btn-new-user {
+        width: 100%; /* Hacer que el botón ocupe toda la anchura */
+    }
+
+    .registration-menu {
+        width: 100%; /* Hacer que el menú ocupe toda la anchura */
+        right: auto; /* Ajustar la posición */
+    }
+
+    .registration-menu button {
+        text-align: center; /* Centrar texto en los botones */
+    }
+
+    /* Ajustes adicionales si son necesarios */
+}

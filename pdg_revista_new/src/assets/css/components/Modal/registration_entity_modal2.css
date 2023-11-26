@@ -1,0 +1,104 @@
+.nav-link-branches {
+    color: #737373;
+    background-color: #ffffff; /* Color de fondo */
+    border: 1px solid #dee2e6; /* Borde */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    margin-right: 2px; /* Margen entre pestañas */
+    cursor: pointer; /* Estilo del cursor */
+    text-decoration: none;
+    border-radius: 3px 3px 0px 0px;
+}
+
+.nav-link-branches.active {
+    color: #fff; /* Color del texto para la pestaña activa */
+    background-color: #007bff; /* Color de fondo para la pestaña activa */
+    border-color: #007bff; /* Color del borde para la pestaña activa */
+}
+
+.input-bubble-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.input-bubble-container .item {
+    cursor: pointer;
+}
+.input-bubble {
+    background-color: #f7f7f7;
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.input-bubble:hover {
+    background-color: #ebebeb;
+}
+
+
+.input-entry-container {
+    position: relative; /* Establece la referencia para la posición absoluta del mensaje de error */
+}
+
+.email-error-message {
+    position: absolute;
+    right: 10px; /* Ajusta según sea necesario */
+    top: 50%;
+    transform: translateY(-50%); /* Centrar verticalmente */
+    color: #ff4d4f;
+    background-color: white; /* Fondo para sobresalir sobre el input si es necesario */
+    padding: 0 5px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    z-index: 10; /* Asegúrate de que se muestre sobre el input */
+}
+
+.invalid-email {
+    border-color: #ff4d4f;
+    padding-right: calc(2em + 10px); /* Espacio adicional para el mensaje de error */
+}
+
+
+
+.tab-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.tab-with-remove {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* Ajusta el espacio entre las pestañas */
+}
+
+.remove-branch-btn,
+.rmv-item {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red; /* O el color que prefieras */
+    margin-left: 5px;
+    margin-right: 0px;
+    padding: 0px 5px;
+}
+
+/* .invalid-email {
+    border: 1px solid red;
+}
+ */
+.email-error-message {
+    color: red;
+    font-size: 0.8em;
+}

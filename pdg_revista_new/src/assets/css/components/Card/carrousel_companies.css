@@ -1,0 +1,125 @@
+/* Estilos para Swiper */
+#carrousel-companies {
+    padding: 20px 0px 30px;
+    position: relative;
+    background-color: #fff;
+    z-index: 0;
+}
+#carrousel-companies h2 {
+    font-size: 3vw;
+    text-align: center;
+    margin: 30px 0px;
+    color: #000;
+}
+.swiper {
+    padding-top: 10px;
+    width: 85%;
+}
+.swiper-container {
+    width: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    transition: transform 0.3s ease; /* animación suave para el efecto de escala */
+}   
+
+.swiper-slide:hover {
+    transform: scale(1.05); /* escala la diapositiva un 5% al pasar el mouse por encima */
+}
+
+/* Para dispositivos táctiles, puedes usar :active o :focus */
+.swiper-slide:active, .swiper-slide:focus {
+    transform: scale(1.05);
+}
+
+/* Estilo para las imágenes en las diapositivas */
+.swiper-slide img {
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-button-next, .swiper-button-prev {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente blanco */
+    width: 50px; /* Ancho del botón */
+    height: 50px; /* Altura del botón */
+    border-radius: 50%; /* Botones redondos */
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    color: #fff; /* Color de las flechas */
+    font-size: 30px; /* Tamaño de las flechas */
+    font-weight: bold;
+}
+.swiper-pagination {
+    bottom: -5px !important;
+    left: 0;
+    width: 100%;
+    text-align: center; /* Asegura que los dots estén centrados horizontalmente */
+    overflow: visible;
+    z-index: 3;
+    position:relative; 
+}
+.swiper-pagination-bullet {
+    width: 12px; /* Tamaño del punto */
+    height: 12px;
+    background: rgba(255, 255, 255, 0.4); /* Color de fondo semi-transparente para los dots inactivos */
+    border-radius: 50%; /* Hace que los puntos sean redondos */
+    opacity: 1; /* Opacidad por defecto para todos los puntos */
+}
+
+/* Estilo para el dot activo */
+.swiper-pagination-bullet-active {
+    background: #FFFFFF; /* Color de fondo blanco para el dot activo */
+    width: 14px; /* Tamaño ligeramente más grande para el dot activo */
+    height: 14px;
+}
+
+
+
+
+.custom-shape-divider-bottom-1700410661 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1700410661 svg {
+    position: relative;
+    display: block;
+    width: calc(131% + 1.3px);
+    height: 189px;
+}
+
+.custom-shape-divider-bottom-1700410661 .shape-fill {
+    fill: #2c3e50;
+}
+/* Estilos responsivos para tablets grandes */  
+@media only screen and (max-width: 1024px) {
+    #carrousel-companies h2 {
+        font-size: 4vw !important;
+    }
+
+}
+
+/* Estilos responsivos para tablets pequeñas */
+@media only screen and (max-width: 768px) {
+    #carrousel-companies h2 {
+        font-size: 36px !important;
+    }
+    .swiper {
+        width: 100%;
+    }
+
+}
+
+/* Estilos responsivos para pantallas pequeñas (celulares) */
+@media only screen and (max-width: 480px) {
+
+}

@@ -1,0 +1,378 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    background-color: #2c3e50; /* 78b2e6 */
+    color: #000;
+    height: 82px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    transition: top 0.3s;
+    padding: 0px 100px;
+}
+.header.hidden {
+    top: -100%;
+}
+
+.logo {
+    z-index: 10;
+    font-weight: bold;
+    margin-right: 50px;
+}
+.nav {
+    display: flex;
+
+    align-items: center;
+}
+.nav .sects-dropdown {
+    border-top: 5px solid #fff;
+}
+.rotated {
+    transform: rotate(180deg);
+}
+.droptbtn {
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave al cambiar de color */
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    /* width: 100%; */
+    justify-content: space-between;
+}
+
+.hamburger-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    display: none; /* Oculto por defecto */
+}
+
+.logo-img {
+    width: 100%; /* El logo ocupará el ancho total del contenedor .logo */
+    height: 100%; /* Altura máxima por defecto */
+    transition: max-height 0.3s ease;
+    border-radius: 4px;
+}
+.nav-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    transition: color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease-in-out;
+    z-index: 10;
+}
+
+.nav-container .register-link {
+    display: none;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    transition: color 0.2s ease-in-out;
+}
+.nav-container .register-link:hover {
+    color: #fff;
+    font-weight: normal;
+}
+.nav-link:hover {
+    color: #ffffff; /* Color de enlace activo de Bootstrap */
+    background-color: #0056b3;
+    font-weight: normal;
+}
+
+/* USER INFORMATION */
+.user-info {
+    min-width: 185px;
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative; /* Esto es necesario para que el .dropdown-content se posicione correctamente */
+    background-color: #e6e6e6; /* Un poco más oscuro que el fondo del header */
+    border-radius: 10px;
+    padding: 5px;
+    color: #000;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.user-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* border: 2px solid #007bff; */ /* Color de enlace activo de Bootstrap */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    position: relative; /* Necesario para posicionar la notificación */
+}
+.hamburger-home {
+    padding: 5px 8px;
+    border-radius: 3px;
+    /* background-color: #dddddd; */
+    display: none;
+}
+.hamburger-home svg {
+    width: 25px;
+    height: auto;
+    fill: #fff;
+}
+.hamburger-home svg path {
+}
+
+/* Estilo para la notificación */
+.notification-count {
+    position: absolute; /* Esto permite posicionar el círculo respecto al contenedor .user-info */
+    top: -5px; /* Posiciona el círculo un poco por encima del icono o imagen del usuario */
+    right: -5px; /* Posiciona el círculo a la derecha del icono o imagen del usuario */
+    background-color: red;
+    color: white;
+    border-radius: 50%; /* Esto hace que el div sea un círculo */
+    width: 20px; /* Define el tamaño del círculo, ajústalo según tus necesidades */
+    height: 20px;
+    display: flex; /* Los siguientes tres estilos centran el número dentro del círculo */
+    justify-content: center;
+    align-items: center;
+    font-size: 12px; /* Tamaño de fuente para el número */
+    font-weight: bold; /* Hace que el número sea negrita */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Agrega una sombra suave para hacer que el círculo resalte más */
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap; /* Evitar que el contenido se divida en múltiples líneas */
+    padding: 0;
+    outline: none; /* Quitar el contorno al hacer clic en el botón */
+    transition: color 0.2s ease-in-out;
+    z-index: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.dropbtn.home {
+    background-color: #dddddd;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+.dropbtn p {
+    margin-bottom: 0px;
+}
+.dropbtn:hover {
+    color: #ff0000; /* Color de enlace activo de Bootstrap */
+    /* background-color: #e6e6e6; */
+    display: flex;
+    flex-direction: row;
+}
+
+.dropdown {
+    width: 100%;
+    position: relative;
+}
+
+/* FLECHA */
+.dropdown-arrow {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333; /* Este es el color del triángulo, ajústalo según tus necesidades */
+    margin-left: 5px; /* Espaciado entre el nombre del usuario y el ícono */
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(0deg);
+}
+.dropdown-arrow.rotated {
+    transform: rotate(180deg);
+}
+.dropdown-hamburger {
+    display: none;
+}
+/*  */
+
+.dropdown-content {
+    position: absolute;
+    right: 0; /* Alinear a la derecha */
+    top: 38px; /* Justo debajo del botón */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 302;
+    border-top-left-radius: 4px; /* Redondear esquinas superiores */
+    border-top-right-radius: 4px;
+    max-width: 100vw; /* Asegurar que no exceda el ancho de la ventana */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.custom-shape-divider-bottom-1700503563 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1700503563 svg {
+    position: relative;
+    display: block;
+    width: calc(156% + 1.3px);
+    height: 32px;
+}
+
+.custom-shape-divider-bottom-1700503563 .shape-fill {
+    fill: #a4d2ff;
+}
+
+@media (max-width: 1200px) {
+    .header {
+        padding: 0px 20px;
+    }
+    .logo {
+        min-width: 4vw; /* Tamaño para pantallas móviles */
+        padding-left: 30px;
+    }
+    .header .logo {
+        margin-right: 50px;
+    }
+}
+
+@media (min-width: 850px) and (max-width: 1024px) {
+    .header {
+        padding: 0px 20px;
+    }
+    .site-nav {
+        gap: 10px; /* Reducir el espacio entre los enlaces */
+    }
+    /* .nav a:nth-child(1) {
+        display: none;
+    } */
+    .nav a:nth-child(2) {
+        display: none;
+    }
+    .logo {
+        min-width: 3vw; /* Tamaño para pantallas móviles */
+        max-width: 200px;
+        padding-left: 20px;
+    }
+    .logo-container {
+        min-width: 20%;
+    }
+    .nav-container {
+        justify-content: right;
+    }
+}
+
+@media (max-width: 850px) {
+    .nav-container {
+        justify-content: right;
+    }
+    .nav-container .register-link {
+        display: block;
+    }
+    .nav-container.open .register-link {
+        display: none;
+    }
+    .nav {
+        display: flex; /* Se muestra en bloque */
+        flex-direction: column; /* Los elementos se organizan en columna */
+        position: absolute; /* Posicionamiento absoluto */
+        top: 82px; /* Empieza justo debajo del header */
+        left: 0;
+        width: 100%; /* Ocupa todo el ancho */
+        background-color: #fff; /* Color de fondo igual al del header */
+        transform-origin: top; /* El origen de la transformación es la parte superior */
+        transform: scaleY(0); /* Comienza sin altura */
+        transition: transform 0.3s ease-in-out; /* Transición suave */
+        z-index: 1000; /* Sobre otros elementos */
+        overflow: hidden; /* Oculta el contenido que desborde */
+    }
+
+    .nav.open {
+        transform: scaleY(1); /* Se expande a su altura natural */
+    }
+
+    .nav a {
+        font-size: 1rem;
+        padding: 10px 20px; /* Espaciado de los enlaces */
+        width: 100%; /* Cada enlace ocupa todo el ancho */
+        color: #0d6efd; /* Color del texto */
+        text-align: left; /* Alineación del texto */
+        justify-content: center; /* Al
+    }
+
+    .nav a:hover {
+        background-color: #0056b3; /* Color al pasar el mouse sobre los enlaces */
+    }
+
+    .notification-count {
+        right: -10px;
+        top: -5px;
+    }
+    .user-info {
+        min-width: 100px;
+        justify-content: space-around;
+    }
+    .dropdown-arrow {
+        display: none;
+    }
+    .dropdown-hamburger {
+        display: block;
+    }
+    .user-info .user-photo {
+        position: relative;
+    }
+    .user-info .dropdown {
+        width: 30px;
+        display: flex;
+        justify-content: center;
+    }
+    .dropbtn p {
+        margin-bottom: 0px;
+        display: none;
+    }
+    .dropdown-content {
+        top: 30px;
+    }
+    .hamburger-home {
+        display: block;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding-right: 35px;
+    }
+    /* .nav a:not(:last-child) {
+        display: none;
+    } */
+
+    .hamburger-btn {
+        display: block; /* Se muestra en pantallas menores a 768px */
+    }
+    .logo {
+        padding-left: 5px;
+    }
+}

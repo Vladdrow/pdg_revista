@@ -1,0 +1,14 @@
+#registration-entity {
+    background-color: #f9f9fa;
+    padding: 50px;
+    height: 100%;
+}
+#registration-entity .header-reg-entity {
+    text-align: center;
+}
+#registration-entity .main-reg-entity {
+}
+#registration-entity .main-reg-entity form {
+    width: 800px;
+    margin: 0 auto;
+}

@@ -1,0 +1,177 @@
+
+/* MODAL */
+/* Detalles de la Sucursal */
+.sucursal-details {
+    background-color: #f2f2f2; /* Color de fondo más claro */
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.sucursal-details p {
+    margin: 8px 0;
+    color: #333; /* Color de texto más oscuro para mejor legibilidad */
+    font-size: 1.2em; /* Tamaño de fuente más pequeño */
+}
+
+/* Estilos del Modal */
+.entity-details-modal {
+    position: relative;
+    width: auto;
+    max-width: 600px;
+    margin: 10% auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow-y: scroll;
+}
+
+/* Overlay del Modal */
+.entity-details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px); /* Efecto borroso */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Encabezado del Modal */
+.entity-details-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.entity-details-title {
+    flex-grow: 1;
+    font-weight: bold;
+    color: #444;
+    font-size: 2em;
+    margin-right: 60px; /* Espacio para el botón de favorito y cierre */
+    letter-spacing: 0.5px;
+}
+
+.entity-details-content {
+    /* Otros estilos previos... */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Asegura que los elementos se distribuyan verticalmente */
+}
+
+/* Botón de Favorito */
+.entity-details-content .entity-favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px; /* A la izquierda del botón de cierre */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.favorite-star {
+    fill: #cccccc; /* Color por defecto de la estrella */
+    width: 30px; /* Tamaño más grande para la estrella */
+    height: 30px;
+}
+
+.entity-favorite-btn.active .favorite-star {
+    fill: #ffd700; /* Color dorado para la estrella favorita */
+}
+
+/* .entity-details-content .entity-branch * {
+    font-size: 16px;
+} */
+
+/* Botón de Cierre */
+.entity-details-close-link {
+    align-self: center; /* Centra el enlace en el contenedor flex */
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #007bff; /* Color de tu preferencia para el enlace */
+    margin-top: 20px; /* Espacio entre el contenido y el enlace de cierre */
+    cursor: pointer;
+}
+.entity-details-close-link:hover {
+    color: #65c2c9;
+}
+
+
+
+.clickable {
+    cursor: pointer;
+    color: blue; /* O el color que prefieras */
+    text-decoration: underline;
+}
+
+.clickable:hover {
+    color: darkblue; /* Cambia el color al pasar el ratón por encima */
+}
+.copy-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+
+
+/* Transiciones para el Modal */
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+    opacity: 0;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 1024px) {
+    .main-content-sects {
+        flex-basis: 32% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content-sects {
+        padding: 1rem;
+        flex-basis: 21% !important;
+        .title-sects {
+            font-size: 2rem;
+        }
+        .entity-details-link {
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+}
+
+@media (max-height: 550px) {
+    .entity-details-modal {
+        height: 100%;
+    }
+}
+@media (max-width: 550px) {
+    .entities-container {
+        grid-template-columns: 1fr;
+    }
+}

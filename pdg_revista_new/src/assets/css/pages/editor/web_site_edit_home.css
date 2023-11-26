@@ -1,0 +1,16 @@
+#web-site-edit-home {
+    padding: 10px 20px 20px 50px;
+    width: 100%;
+    height: fit-content;
+    background-color: azure;
+}
+
+#web-site-edit-home h2 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

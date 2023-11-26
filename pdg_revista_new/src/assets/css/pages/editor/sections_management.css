@@ -1,0 +1,130 @@
+#text-blocks-section.log-ent .text-block {
+    margin: 5px !important;
+    max-width: 300px;
+}
+
+#text-blocks-section.log-ent .text-block .txt-h-before {
+    font-size: 1.5em;
+}
+
+#text-blocks-section.log-ent .text-block .txt-h-after {
+    font-size: 1.6em;
+}
+
+#show-sect-manag .body-sects-manag #text-blocks-section {
+    background-color: azure !important;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+#show-sect-manag .sections-list .btn-list-nav {
+    padding: 10px 0px;
+    border-bottom: 1px solid #ccc;
+}
+#show-sect-manag .sections-list .form-switch .form-check-input {
+    width: 3em !important;
+    height: 1.5em !important;
+}
+
+#show-sect-manag .sections-list .form-switch .form-check-label {
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+
+.modal-content-section #section-form .form-group {
+    margin-bottom: 10px;
+}
+.modal-content-section #section-form .form-group.with-img {
+    text-align: center;
+}
+.modal-content-section #section-form {
+    text-align: center;
+}
+
+.modal-content-section #section-form .img-preview {
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.log-ent.management .text-block {
+    width: 380px !important;
+    margin: 20px !important;
+    height: 400px !important;
+}
+
+.text-block .actions-sect .btn-edt {
+    color: rgb(133, 254, 153) !important;
+}
+.text-block .actions-sect .btn-dlt {
+    color: rgb(254, 133, 133) !important;
+}
+
+/* MODAL */
+/* Estilos para el overlay del modal */
+.modal-overlay {
+    position: fixed; /* Posición fija para cubrir toda la pantalla */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparente para oscurecer la pantalla */
+    z-index: 999; /* Justo debajo del modal */
+}
+.modal-overlay--after-open {
+    opacity: 1;
+}
+
+/* Estilos para el contenido del modal */
+.modal-content-section {
+    position: fixed; /* Posición fija para que siempre esté en el centro de la pantalla */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar el modal */
+    min-width: 600px;
+    height: fit-content;
+    background: white; /* Fondo blanco */
+
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+}
+
+/* Estilos para el botón de cerrar */
+.modal-content-section button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.modal-content-section button:hover {
+    background-color: #0056b3;
+}
+
+/* Espacio entre los campos del formulario */
+.modal-content-section .form-register div {
+    margin-bottom: 15px;
+}
+
+/* Estilos específicos para el botón de cerrar modal */
+.close-modal {
+    position: absolute; /* Esto posicionará el botón relativo al modal */
+    top: 10px; /* Espacio desde la parte superior */
+    right: 10px; /* Espacio desde la parte derecha */
+    background-color: #0b62bf; /* Sin fondo */
+    color: #fff; /* Color gris oscuro para la "X" */
+    font-size: 24px; /* Tamaño de letra más grande para la "X" */
+    padding: 5px 10px; /* Espaciado interno del botón */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Mano al pasar el mouse por encima */
+    transition: color 0.2s; /* Transición suave del color */
+    border-radius: 3px;
+    z-index: 100;
+}
+
+.close-modal:hover {
+    color: #ff0000;
+    background-color: #007bff;
+}
